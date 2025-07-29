@@ -1,0 +1,15 @@
+JWT: JSON Web Token
+
+Usuário faz login, envia email/senha, o back-end cria um token ÚNICO, não-modificável e STATELESS
+
+STATELESS: Não armazenado em nenhuma estrutura de persistẽncia de dados (BD)
+
+Back-end: Quando vai criar o token ele usa uma PALAVRA-CHAVE (string)
+
+Palavra-chave: huo92892u80380yu80cdsvbj312bnadudhqbqd (exemplo)
+
+email/senha --> Header.payload.sign
+
+Login => JWT
+JWT => todas requisições dali pra frente
+Hedear: Authorization bearer JWT
