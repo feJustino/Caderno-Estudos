@@ -86,7 +86,7 @@ O servidor:
    - Usado para **gerar um novo Access Token** quando o atual expira.  
 
 **Fluxo:**  
-- Access Token expira → cliente envia Refresh Token.  
+- Access Token expira → cliente envia Refresh Token.  Quer que eu explique algo mais detalhadamente? 🚀
 - Servidor verifica se o Refresh Token é válido.  
 - Se sim, **emite um novo Access Token**.  
 
@@ -124,5 +124,3 @@ O servidor:
 ✔ **Stateless**: O servidor não armazena o token.  
 ✔ **Expiração**: Use `exp` ou **Refresh Token + Access Token**.  
 ✔ **Segurança**: Evite `localStorage`, use chaves fortes e proteja contra CSRF/XSS.  
-
-Quer que eu explique algo mais detalhadamente? 🚀
