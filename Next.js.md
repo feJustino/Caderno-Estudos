@@ -431,3 +431,98 @@ Next.js otimiza automaticamente para:
 5. **Full-stack capabilities** com API routes
 6. **Ecosystem maduro** com grande comunidade
     
+---
+# Arquivo APP
+
+## 📄 `_app.tsx` — **Personaliza o Comportamento Global do App**
+
+### ✅ Para que serve:
+
+O `_app.tsx` é usado para **inicializar páginas**. Ele permite:
+
+* Persistência de estado entre páginas (ex: Redux, Zustand)
+* Layouts compartilhados
+* Importar CSS global
+* Autenticação de rotas
+* Manipular `pageProps`
+
+### 🔧 Como funciona:
+
+O Next.js chama esse arquivo em **todas as páginas**, e ele recebe a **página atual** como componente (`Component`) e suas `props`.
+
+### 🧠 Exemplo típico:
+
+```tsx
+// pages/_app.tsx
+import type { AppProps } from 'next/app'
+import '../styles/globals.css'
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
+}
+```
+
+---
+# Arquivo Document
+## 📄 `_document.tsx` — **Personaliza o HTML estático (SSR)**
+
+### ✅ Para que serve:
+
+O `_document.tsx` é usado para **customizar o HTML base** renderizado no **servidor** (SSR). Ele te dá acesso direto à estrutura do documento HTML, como `<html>`, `<head>`, `<body>`.
+
+Útil para:
+
+* Adicionar fontes customizadas
+* Injetar scripts externos no `<head>`
+* Alterar atributos da tag `<html lang="pt-BR">`
+* Integrar com bibliotecas como styled-components, emotion etc.
+
+### ⚠️ Importante:
+
+* Só roda **no servidor**
+* Não roda no cliente (sem JS)
+* Use apenas para alterações na **estrutura do documento**
+
+### 🧠 Exemplo típico:
+
+```tsx
+// pages/_document.tsx
+import { Html, Head, Main, NextScript } from 'next/document'
+import { Document, DocumentContext } from 'next/document'
+
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
+
+  render() {
+    return (
+      <Html lang="pt-BR">
+        <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
+        </Head>
+        <body>
+          <Main /> {/* Aqui vai o conteúdo das páginas */}
+          <NextScript /> {/* Scripts do Next.js */}
+        </body>
+      </Html>
+    )
+  }
+}
+```
+
+---
+
+## ⚖️ Comparativo rápido:
+
+| Arquivo         | Executa em           | Personaliza                       | Exemplo de uso                    |
+| --------------- | -------------------- | --------------------------------- | --------------------------------- |
+| `_app.tsx`      | Cliente e servidor   | Ciclo de vida das páginas         | Layouts, autenticação, contexto   |
+| `_document.tsx` | **Somente servidor** | HTML base do SSR (html/head/body) | Fonts, scripts, attrs em `<html>` |
+
