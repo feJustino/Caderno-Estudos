@@ -1,5 +1,5 @@
 # Algoritimos
-Os algoritmos podem ser representados de três maneiras básicas: narração descritiva; fluxogramas e pseudocódigo.
+Um algoritmo, em sua essência, é um conjunto preciso de instruções organizadas logicamente para realizar uma tarefa específica. Os algoritmos podem ser representados de três maneiras básicas: narração descritiva; fluxogramas e pseudocódigo.
 ## Estrutura de repetição
 ### Se Então, Se Não
 A estrutura "se então, se não" permite executar comandos específicos com base na avaliação de uma condição. Se a condição for verdadeira, um bloco de código é executado. Caso contrário, outro bloco pode ser executado.
