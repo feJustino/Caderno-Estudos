@@ -168,6 +168,5 @@ BROOKSHEAR, J.G. Ciência da Computação: uma visão abrangente. Porto Alegre: 
 FORBELLONE, A.L.V. & EBERSPACHER, H. F.  Lógica de Programação –  A Construção de Algoritmos e Estruturas de Dados. 3ª. Edição. São Paulo, SP: Prentice Hall, 2005.
 
 SEBESTA, R. W. Conceitos de linguagens de programação [recurso eletrônico] /
-
 Robert W. Sebesta; tradução técnica: Eduardo Kessler Piveta. – 9. ed. – Dados eletrônicos. – Porto Alegre : Bookman, 2011.
 
