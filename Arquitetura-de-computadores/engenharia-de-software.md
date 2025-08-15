@@ -248,13 +248,17 @@ classDiagram
 
 2. **Diagrama de Casos de Uso**:  
 ```mermaid
-graph TD
-    A[Cliente] --> B[Sacar Dinheiro]
-    A --> C[Consultar Saldo]
-    B -.-> D[Autenticar Usuário]
-    linkStyle 2 stroke:#ff5500,stroke-width:2px,stroke-dasharray:5
-    classDef relation fill:#fff,stroke:#ff5500,stroke-width:2px,stroke-dasharray:5;
-    class D relation
+flowchart TD
+    A["Cliente"] --> B["Sacar Dinheiro"] & C["Consultar Saldo"]
+    B -.-> D["Autenticar Usuário"]
+
+     D:::relation
+    classDef relation fill:#fff,stroke:#ff5500,stroke-width:2px,stroke-dasharray:5
+    style D color:#D50000
+    linkStyle 2 stroke:#ff5500,stroke-width:2px,stroke-dasharray:5,fill:none
+
+
+
 ```
 
 3. **Diagrama de Sequência**:  
