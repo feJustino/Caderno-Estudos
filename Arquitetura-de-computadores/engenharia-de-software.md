@@ -248,11 +248,13 @@ classDiagram
 
 2. **Diagrama de Casos de Uso**:  
 ```mermaid
-useCaseDiagram
-    ator Cliente
-    Cliente --> (Sacar Dinheiro)
-    Cliente --> (Consultar Saldo)
-    (Sacar Dinheiro) .> (Autenticar Usuário) : include
+graph TD
+    A[Cliente] --> B[Sacar Dinheiro]
+    A --> C[Consultar Saldo]
+    B -.-> D[Autenticar Usuário]
+    linkStyle 2 stroke:#ff5500,stroke-width:2px,stroke-dasharray:5
+    classDef relation fill:#fff,stroke:#ff5500,stroke-width:2px,stroke-dasharray:5;
+    class D relation
 ```
 
 3. **Diagrama de Sequência**:  
