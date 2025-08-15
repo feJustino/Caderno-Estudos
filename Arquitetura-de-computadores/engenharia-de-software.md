@@ -160,9 +160,7 @@ if (x > 0 && y == 10) {
 - 📉 Burndown chart (progresso)  
 
 ---
-Aqui está a seção 5 ampliada com metodologias, técnicas e ferramentas de modelagem, incorporando insights dos resultados de pesquisa:
 
----
 ### 5. Ferramentas de Modelagem  
 #### 5.1 Diagramas Essenciais  
 
