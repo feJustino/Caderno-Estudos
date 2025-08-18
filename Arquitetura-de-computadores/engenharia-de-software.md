@@ -256,9 +256,6 @@ flowchart TD
     classDef relation fill:#fff,stroke:#ff5500,stroke-width:2px,stroke-dasharray:5
     style D color:#D50000
     linkStyle 2 stroke:#ff5500,stroke-width:2px,stroke-dasharray:5,fill:none
-
-
-
 ```
 
 3. **Diagrama de Sequência**:  
