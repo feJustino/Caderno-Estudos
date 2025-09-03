@@ -53,10 +53,3 @@ Esse conceito vem de práticas de facilitação, liderança e coaching. É sobre
 Pensa assim:
 
 > O design intencional cria o “campo” da conversa, e a escuta ativa é a forma de jogar bem dentro desse campo.
-
----
-
-Se quiser, posso montar um **guia prático passo a passo** que junte escuta ativa + design intencional para usar em conversas importantes, como reuniões, feedbacks ou alinhamentos de projeto.
-Assim você teria um método replicável.
-
-Quer que eu monte?
