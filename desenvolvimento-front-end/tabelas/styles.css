@@ -1,0 +1,199 @@
+/* Reset e variáveis CSS */
+:root {
+    --cor-primaria: #2c3e50;
+    --cor-secundaria: #3498db;
+    --cor-sucesso: #27ae60;
+    --cor-aviso: #f39c12;
+    --cor-erro: #e74c3c;
+    --cor-fundo: #ecf0f1;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transicao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 2.5rem;
+}
+
+/* Estilos da tabela */
+.tabela-produtos {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    margin: 2rem 0;
+}
+
+.tabela-produtos caption {
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: var(--cor-primaria);
+    background: rgba(52, 73, 94, 0.05);
+    border-bottom: 2px solid var(--cor-secundaria);
+}
+
+/* Cabeçalho */
+.tabela-produtos thead {
+    background: linear-gradient(135deg, var(--cor-primaria), #34495e);
+    color: white;
+}
+
+.tabela-produtos th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transicao);
+}
+
+.tabela-produtos th:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tabela-produtos th[data-sort]:after {
+    content: ' ⇅';
+    opacity: 0.5;
+    margin-left: 0.5rem;
+}
+
+/* Corpo da tabela */
+.tabela-produtos tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: var(--transicao);
+}
+
+.tabela-produtos tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.tabela-produtos tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-produtos td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+/* Status badges */
+.status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status.disponivel {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--cor-sucesso);
+    border: 1px solid var(--cor-sucesso);
+}
+
+.status.baixo {
+    background-color: rgba(243, 156, 18, 0.1);
+    color: var(--cor-aviso);
+    border: 1px solid var(--cor-aviso);
+}
+
+.status.indisponivel {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--cor-erro);
+    border: 1px solid var(--cor-erro);
+}
+
+/* Rodapé */
+.tabela-produtos tfoot {
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: 600;
+}
+
+.tabela-produtos tfoot td {
+    padding: 1rem;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .tabela-produtos {
+        font-size: 0.9rem;
+    }
+
+    .tabela-produtos th,
+    .tabela-produtos td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .tabela-produtos thead {
+        display: none;
+    }
+
+    .tabela-produtos tr {
+        display: block;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        background: white;
+        box-shadow: var(--sombra);
+    }
+
+    .tabela-produtos td {
+        display: block;
+        text-align: right;
+        border: none;
+        padding: 0.5rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tabela-produtos td:before {
+        content: attr(data-label) ": ";
+        float: left;
+        font-weight: bold;
+        color: var(--cor-primaria);
+    }
+}
+
+/* Animações */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tabela-produtos {
+    animation: slideIn 0.5s ease-out;
+}

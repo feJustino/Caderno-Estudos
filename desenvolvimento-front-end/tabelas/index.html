@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Produtos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <h1>Controle de Estoque</h1>
+
+        <table class="tabela-produtos" id="tabelaProdutos">
+            <caption>
+                Relatório de Produtos em Estoque - Atualizado em
+                <time datetime="2024-09-18">18/09/2024</time>
+            </caption>
+
+            <thead>
+                <tr>
+                    <th scope="col" data-sort="codigo">Código</th>
+                    <th scope="col" data-sort="produto">Produto</th>
+                    <th scope="col" data-sort="categoria">Categoria</th>
+                    <th scope="col" data-sort="preco">Preço</th>
+                    <th scope="col" data-sort="estoque">Estoque</th>
+                    <th scope="col" data-sort="status">Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Notebook Dell Inspiron</td>
+                    <td>Informática</td>
+                    <td>R$ 2.499,99</td>
+                    <td>15</td>
+                    <td><span class="status disponivel">Disponível</span></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Mouse Logitech MX Master</td>
+                    <td>Periféricos</td>
+                    <td>R$ 399,99</td>
+                    <td>5</td>
+                    <td><span class="status baixo">Estoque Baixo</span></td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Teclado Mecânico RGB</td>
+                    <td>Periféricos</td>
+                    <td>R$ 299,99</td>
+                    <td>0</td>
+                    <td><span class="status indisponivel">Indisponível</span></td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="4">Total de Produtos Cadastrados</td>
+                    <td>3</td>
+                    <td>-</td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
