@@ -1,196 +1,225 @@
 # Fundamentos de Bancos de Dados
 
-Os bancos de dados são parte fundamental do mundo moderno. Sempre que você faz um saque em um caixa eletrônico, compra algo em uma loja online, reserva um quarto de hotel ou acessa suas redes sociais, existe um banco de dados funcionando por trás dessas operações. Eles permitem que informações sejam armazenadas, organizadas e acessadas de forma rápida, segura e eficiente.
-
-Este estudo organiza os principais conceitos de bancos de dados em uma linguagem simples, mas sem perder profundidade.
+*Um guia para estudantes de Ciência da Computação*
 
 ---
 
-## Dados vs Informação
-
-* **Dados**: são fatos brutos, números ou símbolos que, por si só, podem não ter muito significado.
-
-  * Exemplo: `2021`, `35`, `Maria`.
-
-* **Informação**: surge quando os dados são organizados e interpretados em um contexto.
-
-  * Exemplo: “Maria tem 35 anos e iniciou sua graduação em 2021.”
-
-Um agricultor pode armazenar apenas números de sacas colhidas por ano (dados quantitativos), mas ao registrar também fatores como cheias, clima e variações de plantio, ele transforma esses dados em **informações qualitativas**. Assim, ele pode tomar decisões mais inteligentes, como planejar culturas em períodos de menor risco de enchentes.
-
----
-
-## Entidades, Atributos, Valores e Relacionamentos
-
-Esses são os blocos fundamentais da modelagem de dados, especialmente no **modelo relacional**.
-
-### Entidades
-
-Uma entidade é algo do mundo real que você deseja representar no banco. Pode ser:
-
-* **Objeto concreto**: Cliente, Produto, Carro.
-* **Evento ou relação**: Matrícula, Venda, Casamento.
-
-No **SQL**, cada entidade vira uma **tabela**, e cada linha da tabela representa uma **instância** da entidade.
-
-* **Entidades como objetos**: objetos do mundo real tratados como unidades únicas. Exemplo: em um restaurante, não faz sentido registrar cada grão de arroz; usamos apenas o prato servido como entidade.
-* **Entidades como relacionamentos**: relações também podem ser entidades, quando contêm informações próprias. Exemplo: a entidade **Venda** conecta **Cliente** e **Produto**, mas também possui atributos como data e valor.
+## Sumário
+1. [Introdução e Conceitos Básicos](#introdução-e-conceitos-básicos)
+2. [Dados vs. Informação](#dados-vs-informação)
+3. [Sistemas de Arquivos vs. SGBD](#sistemas-de-arquivos-vs-sgbd)
+4. [Componentes de um Banco de Dados](#componentes-de-um-banco-de-dados)
+5. [Modelos de Dados](#modelos-de-dados)
+6. [O Modelo Relacional](#o-modelo-relacional)
+7. [O Modelo Orientado a Objetos](#o-modelo-orientado-a-objetos)
+8. [Diagrama Entidade-Relacionamento (DER)](#diagrama-entidade-relacionamento-der)
+9. [SGBD: Funcionalidades e Operações](#sgbd-funcionalidades-e-operações)
+10. [SQL vs NoSQL](#sql-vs-nosql)
+11. [ACID vs BASE](#acid-vs-base)
 
 ---
 
-### Atributos
+## Introdução e Conceitos Básicos
 
-* Os atributos são as **características das entidades**.
-* No SQL, viram **colunas da tabela**.
-* Exemplos:
+Bancos de dados (BD) são coleções organizadas de dados, essenciais para operações do cotidiano, como transações bancárias, reservas online, cadastros e muito mais. Eles permitem que empresas e organizações armazenem, gerenciem e analisem grandes volumes de dados para tomada de decisões.
 
-  * Entidade **Aluno** → atributos: nome, matrícula, idade.
-  * Entidade **Produto** → atributos: código, descrição, preço.
+### O que é um Banco de Dados?
+- **Banco de dados**: Instância de dados + metadados.
+  - **Instância de dados**: Os dados reais armazenados.
+  - **Metadados**: Dados sobre os dados (estrutura, regras, restrições).
+- **SGBD (Sistema Gerenciador de Banco de Dados)**: Software que gerencia o banco de dados (ex: MySQL, PostgreSQL, Oracle).
 
-A famosa frase de Leibniz se aplica aqui: *uma entidade é a soma de seus atributos*.
-
----
-
-### Valores
-
-* Cada **atributo** assume um **valor** em cada instância.
-* Exemplo:
-
-  * Aluno: (nome = “Maria”, idade = 20).
-
-Esses valores vêm de **tipos de dados** ou **domínios**:
-
-* **Tipo de dado**: conjunto de valores pré-definidos pelo SGBD (ex.: `INT`, `VARCHAR`, `DATE`). Já possuem operadores nativos, como soma ou comparação.
-* **Domínio**: subconjunto mais específico de um tipo de dado, definido pelo projetista.
-
-  * Exemplo:
-
-    * Tipo de dado: `INT`
-    * Domínio: idades entre 0 e 120.
-    * Outro domínio: CPF (baseado em `VARCHAR(11)`, mas com regra de validação).
+> 💡 **No princípio**: Antes dos SGBDs, os dados eram armazenados em arquivos simples, o que causava redundância, inconsistência e dificuldade de acesso.
 
 ---
 
-### Relacionamentos
+## Dados vs. Informação
 
-Relacionamentos conectam entidades e podem ter atributos próprios.
+- **Dados**: Fatos brutos, representados por medidas, símbolos ou valores (ex: números, textos).
+- **Informação**: Dados processados e contextualizados, que possuem significado e utilidade.
 
-* **1:1 (um para um)**: Um funcionário ↔ sua ficha.
-* **1\:N (um para muitos)**: Um cliente ↔ vários pedidos.
-* **N\:M (muitos para muitos)**: Alunos ↔ Disciplinas (um aluno cursa várias disciplinas, e uma disciplina pode ter vários alunos).
-
-Em 1976, **Peter Chen** introduziu a modelagem **Entidade-Relacionamento (ER)**, representando entidades em retângulos, relacionamentos em losangos e atributos em elipses. Essa técnica é usada até hoje como padrão para projeto de bancos de dados.
+**Exemplo**: Um agricultor coleta *dados* sobre a produção de safras. Quando ele analisa esses dados para identificar que "em épocas de cheia, a plantação perde X%", ele transforma dados em *informação* útil para decisões futuras.
 
 ---
 
-## Modelo Relacional
+## Sistemas de Arquivos vs. SGBD
 
-O **modelo relacional**, proposto por Edgar F. Codd, organiza os dados em **tabelas (relações)**, compostas por **linhas (tuplas)** e **colunas (atributos)**.
-
-* **Tabela**: representa uma entidade ou relacionamento.
-* **Tupla (linha)**: representa um registro individual.
-* **Coluna (atributo)**: representa uma propriedade da entidade.
-* **Esquema da relação**: nome da tabela + conjunto de atributos.
-* **Cardinalidade**: número de linhas em uma tabela.
-* **Grau**: número de colunas em uma tabela.
-* **Instância de relação**: conjunto de tuplas existentes em determinado momento.
-* **Chave primária**: atributo que identifica unicamente uma tupla.
-* **Chave estrangeira**: atributo que conecta uma tabela a outra.
+| Sistema de Arquivos                          | SGBD                                      |
+|---------------------------------------------|-------------------------------------------|
+| Dados armazenados em pastas separadas       | Dados integrados e organizados            |
+| Dificuldade de acesso e manipulação         | Acesso rápido e seguro                    |
+| Dados redundantes e inconsistentes          | Controle de integridade e consistência    |
+| Baixa segurança                             | Controle de acesso e permissões           |
 
 ---
 
-## Restrições de Integridade
+## Componentes de um Banco de Dados
 
-Para manter os dados **corretos e consistentes**, aplicam-se restrições:
+### Instância e Esquema
+- **Instância**: Conjunto de dados em um momento específico (mudam frequentemente).
+- **Esquema**: Estrutura do BD (tabelas, colunas, relacionamentos) – muda raramente.
 
-1. **De domínio**: cada atributo deve assumir apenas valores válidos de seu domínio.
+### Independência de Dados
+- **Independência física**: Alterar a estrutura física sem afetar o esquema lógico.
+- **Independência lógica**: Alterar o esquema lógico sem afetar as aplicações.
 
-   * Exemplo: idade não pode ser negativa.
+```mermaid
+flowchart RL
+    subgraph Abstracao[Níveis de abstração]
+        direction TB
+        C[Projeto Conceitual]
+        L[Projeto Lógico]
+        F[Projeto Físico]
+    end
 
-2. **De chave**: garante que cada tupla seja única na tabela.
+    L -->|Esquema| Esquema
+    F -->|Instância| Instancia
+```
 
-   * Exemplo: duas pessoas não podem ter o mesmo número de CPF.
-
-3. **De integridade referencial**: uma chave estrangeira deve sempre se referir a uma chave primária existente.
-
-   * Exemplo: um pedido não pode referenciar um cliente que não existe.
-
----
-
-## Operações no Modelo Relacional
-
-Principais operações que manipulam dados em SQL:
-
-* **INSERT**: insere novas tuplas.
-* **DELETE**: remove tuplas.
-* **UPDATE**: modifica valores existentes.
-* **SELECT**: consulta dados.
-
-Todas essas operações devem respeitar as **restrições de integridade** para evitar inconsistências.
-
----
-
-## Práticas de Modelagem Relacional
-
-* Representar os dados como relações (tabelas).
-* Nomear colunas de forma única e significativa.
-* Cada célula deve conter apenas um valor (valores atômicos).
-* Evitar redundância (linhas duplicadas).
-* Garantir que todos os atributos pertençam a domínios bem definidos.
+### Linguagens de um SGBD
+1. **DDL (Linguagem de Definição de Dados)**: Define a estrutura do BD (ex: `CREATE`, `ALTER`, `DROP`).
+2. **DML (Linguagem de Manipulação de Dados)**: Manipula os dados (ex: `SELECT`, `INSERT`, `UPDATE`, `DELETE`).
+3. **QL (Linguagem de Consulta)**: Permite consultas complexas (ex: SQL).
 
 ---
 
-## Vantagens do Modelo Relacional
+## Modelos de Dados
 
-* **Simplicidade**: estrutura em tabelas é intuitiva.
-* **Independência de dados**: alterações na estrutura não exigem mudanças nas aplicações.
-* **Capacidade de consulta**: SQL permite consultas complexas de forma simples.
-* **Escalabilidade**: lida bem com grandes volumes de dados.
-* **Segurança**: controle de acesso e integridade.
+### Modelos Conceituais
+- **Entidade-Relacionamento (ER)**: Representa entidades, atributos e relacionamentos de forma visual.
 
-## Desvantagens
-
-* Pode ser **complexo** em cenários de muitos relacionamentos.
-* Alguns sistemas impõem **limites de tamanho** para campos.
-* Consultas muito complexas podem ter **baixo desempenho**.
+### Modelos Lógicos
+1. **Relacional**: Dados organizados em tabelas com linhas e colunas.
+2. **Orientado a Objetos**: Dados representados como objetos (com atributos e métodos).
+3. **Redes**: Baseado em grafos (nós e arestas).
+4. **Hierárquico**: Estrutura em árvore (registros pai e filho).
 
 ---
 
-## Banco de Dados Orientados a Objetos (BDOO)
+## O Modelo Relacional
 
-Para superar limitações do modelo relacional, surgiram os bancos orientados a objetos, que unem conceitos de **POO (Programação Orientada a Objetos)** e bancos de dados.
+Representa o banco de dados como uma coleção de **tabelas** (relações). Cada tabela possui:
+- **Linhas (tuplas)**: Registros individuais.
+- **Colunas (atributos)**: Características dos registros.
 
-* Os dados são armazenados como **objetos** com atributos e métodos.
-* Suportam **herança, encapsulamento e polimorfismo**.
-* São úteis para aplicações avançadas, como CAD, multimídia e simulações.
+### Componentes do Modelo Relacional
+- **Atributo**: Coluna de uma tabela.
+- **Tupla**: Linha única em uma tabela.
+- **Esquema de relação**: Nome da relação + seus atributos.
+- **Grau**: Número total de atributos.
+- **Cardinalidade**: Número total de linhas.
+- **Chave primária**: Atributo que identifica unicamente uma tupla.
+- **Chave estrangeira**: Atributo que referencia uma chave primária em outra tabela.
 
-Exemplos de SGBDOO: **ObjectStore, Versant, Caché, GEMSTONE**.
+### Restrições de Integridade
+1. **Restrições de domínio**: Valores devem estar dentro de um domínio pré-definido.
+2. **Restrições de chave**: Chave primária deve ser única e não nula.
+3. **Integridade referencial**: Chaves estrangeiras devem referenciar chaves primárias válidas.
+
+### Operações Básicas
+- `INSERT`: Adicionar novos registros.
+- `UPDATE`: Modificar registros existentes.
+- `DELETE`: Remover registros.
+- `SELECT`: Consultar dados.
+
+### Vantagens e Desvantagens
+| Vantagens                          | Desvantagens                          |
+|-----------------------------------|---------------------------------------|
+| Simplicidade e facilidade de uso  | Limitações em campos de texto longo   |
+| Independência de dados            | Complexidade em relacionamentos muitos-para-muitos |
+| Escalabilidade                    | Dificuldade em consultas recursivas   |
+| Capacidade de consulta (SQL)      |                                       |
+
+---
+
+## O Modelo Orientado a Objetos
+
+Combina princípios de programação orientada a objetos com armazenamento de dados. Os dados são representados como **objetos**, com atributos e métodos.
+
+### Por que usar?
+- **Limitações do modelo relacional**: Não representa adequadamente entidades complexas do mundo real.
+- **Aplicações avançadas**: Necessidade de armazenar objetos diretamente (ex: multimídia).
+- **Popularidade da OO**: Integração com linguagens como Java e C++.
+
+### Exemplos de SGBDOO
+- Gemstone/OPAL, Ontos, ObjectStore, Cache.
+
+---
+
+## Diagrama Entidade-Relacionamento (DER)
+
+Representação gráfica do modelo de dados, mostrando:
+- **Entidades**: Objetos do mundo real (ex: Pessoa, Produto).
+- **Atributos**: Características das entidades (ex: nome, preço).
+- **Relacionamentos**: Como as entidades se conectam.
+
+### Tipos de Relacionamentos
+- **1:1 (Um para um)**: Cada entidade A se relaciona com no máximo uma entidade B.
+- **1:N (Um para muitos)**: Uma entidade A pode se relacionar com várias entidades B.
+- **N:M (Muitos para muitos)**: Múltiplas entidades A e B podem se relacionar.
+
+### Classificação de Entidades
+- **Físicas**: Objetos tangíveis (ex: Pessoa, Produto).
+- **Lógicas**: Decorrentes de interações (ex: Venda, Cadastro).
+- **Fortes**: Existem independentemente.
+- **Fracas**: Dependem de outras entidades.
+
+### Exemplo de DER
+```mermaid
+erDiagram
+    CURSOS ||--o{ ALUNOS : matricula
+    PROFESSORES ||--o{ CURSOS : ministra
+    CURSOS ||--o{ DISCIPLINAS : inclui
+    CURSOS ||--o{ DEPARTAMENTOS : pertence
+    FUNCIONARIOS ||--o{ DEPARTAMENTOS : coordena
+    ALUNOS ||--o{ DISCIPLINAS : cursa
+    PROFESSORES ||--o{ DISCIPLINAS : ensina
+    DISCIPLINAS ||--o{ TURMAS : oferta
+    SALAS ||--o{ TURMAS : ocupa
+```
+
+---
+
+## SGBD: Funcionalidades e Operações
+
+Principais conceitos e funções de um SGBD:
+- **Tabelas**: Armazenam dados em linhas e colunas.
+- **Índices**: Aceleram consultas.
+- **Transações**: Operações atômicas (ou todas são executadas ou nenhuma).
+- **Backup e recuperação**: Protegem contra perda de dados.
+- **Segurança**: Controlam acesso e permissões.
+- **Desempenho**: Otimizam consultas e operações.
 
 ---
 
 ## SQL vs NoSQL
 
-* **SQL**: bancos relacionais, estruturados em tabelas (MySQL, PostgreSQL, Oracle).
-* **NoSQL**: bancos não relacionais, mais flexíveis, que usam documentos, grafos ou chave-valor (MongoDB, Cassandra, Redis).
-
-A escolha depende das necessidades do projeto:
-
-* SQL → ideal para consistência e estrutura rígida.
-* NoSQL → ideal para escalabilidade e dados sem estrutura fixa.
+| SQL (Relacional)               | NoSQL (Não relacional)               |
+|-------------------------------|--------------------------------------|
+| Dados organizados em tabelas  | Dados flexíveis (documentos, grafos) |
+| Esquema fixo                  | Esquema dinâmico                     |
+| Escalabilidade vertical       | Escalabilidade horizontal            |
+| Ex: MySQL, PostgreSQL         | Ex: MongoDB, Cassandra               |
 
 ---
 
 ## ACID vs BASE
 
-* **ACID** (Atomicidade, Consistência, Isolamento, Durabilidade): garante transações confiáveis em bancos relacionais.
-* **BASE** (Basicamente Disponível, Estado Soft, Eventualmente Consistente): prioriza disponibilidade e escalabilidade, típico de bancos NoSQL.
+### ACID (Bancos Relacionais)
+- **Atomicidade**: Transações são all-or-nothing.
+- **Consistência**: O BD sempre está em um estado válido.
+- **Isolamento**: Transações não interferem umas nas outras.
+- **Durabilidade**: Dados persistem após falhas.
+
+### BASE (Bancos NoSQL)
+- **Basicamente Disponível**: Sempre respondendo, mesmo com falhas parciais.
+- **Estado Soft**: Pode haver inconsistências temporárias.
+- **Eventualmente Consistente**: Dados tornam-se consistentes ao longo do tempo.
 
 ---
 
-## Conclusão
+### Referência Bibliográfica
+ELMASRI, Ramez. Sistemas de banco de dados. São Paulo: Pearson Addison Wesley, 2015.
 
-O estudo de bancos de dados envolve compreender desde conceitos básicos de **dados e informação**, passando por **entidades, atributos, valores e relacionamentos**, até os diferentes **modelos de dados** (relacional, orientado a objetos, NoSQL).
-
-Dominar esses fundamentos é essencial para quem está começando em Ciência da Computação, pois quase todas as aplicações modernas dependem de bancos de dados robustos, consistentes e bem projetados.
-_________
-> Referência Bibliográfica: ELMASRI, Ramez. Sistemas de banco de dados. São Paulo: Pearson Addison Wesley, 2015.
+---
+**Nota**: Este documento integra e organiza os conceitos fundamentais de bancos de dados, com linguagem acessível para estudantes do primeiro semestre, sem omitir detalhes importantes.
