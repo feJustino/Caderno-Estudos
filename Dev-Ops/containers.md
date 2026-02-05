@@ -122,3 +122,44 @@
 - `docker container rm <id>` — remove container
 - `docker build` — cria imagem
 - `docker run` — executa imagem
+
+## 9. Volumes em Docker
+
+### **Imagens de Containers são Efêmeras — O que isso significa?**
+
+Quando trabalhamos com containers, precisamos entender que **as imagens e os próprios containers são efêmeros**. Isso quer dizer que qualquer alteração feita **dentro** de um container em execução **não é preservada** quando ele é destruído ou recriado.
+
+Por exemplo:
+Se você acessar o container e criar um arquivo manualmente — seja uma foto, um PDF, um log ou qualquer outro tipo de dado — esse arquivo **não fará parte da imagem original**. Portanto, ao rebuildar a imagem ou recriar o container, **tudo que não está definido no processo de build será perdido**.
+
+É aí que entram os **volumes**.
+Eles permitem que você **persista dados** mesmo que o container seja removido. Assim, sua aplicação pode continuar armazenando informações importantes sem depender do filesystem interno do container.
+
+**Em resumo:**
+
+* O conteúdo interno do container *não persiste* após sua remoção.
+* Para garantir persistência de dados, utilizamos **volumes**.
+* Volumes permitem que dados importantes sobrevivam a rebuilds, reinicializações e recriações dos containers.
+
+-**docker exec -it <container_id> /bin/bash** - Acessa o terminal do container em execução; Acesso ao sistema de arquivos do container
+
+### **O que é um Volume no Docker e por que ele é necessário?**
+
+Podemos entender um **volume** como um diretório **externo ao container**, independente dele. Isso é importante porque, por padrão, um container é **volátil e efêmero**. Ou seja, tudo aquilo que criamos dentro do container — arquivos, logs, imagens, PDFs — **se perde** assim que o container é reiniciado, destruído ou recriado.
+
+É por isso que, no exemplo em que criamos um arquivo dentro do container e depois demos um *restart*, o arquivo simplesmente desapareceu:
+**não havia nenhum volume persistente associado**, então o filesystem interno foi completamente descartado, como esperado.
+
+É exatamente para resolver esse problema que existe o conceito de **volume persistente**.
+Quando precisamos manter dados mesmo após a recriação do container, utilizamos volumes para associar esse conteúdo a um local que **não depende da vida do container**.
+
+No Docker, trabalhamos com isso por meio do comando:
+
+```
+docker volume
+```
+
+Esse comando permite criar, listar, inspecionar e gerenciar volumes, garantindo que os dados persistam independentemente do ciclo de vida do container.
+
+-**docker volume ls** - Lista volumes criados
+-**docker volume create <nome_do_volume>** - Cria um volume
