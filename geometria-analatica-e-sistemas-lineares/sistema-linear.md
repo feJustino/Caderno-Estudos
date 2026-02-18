@@ -12,3 +12,8 @@
     - D = determinante da matriz criada utilizando o multiplicador das incognitas
     - d(x) = Determiantes da matriz onde as incognitas X do sistema linear é substituido pelos valores resultado do sistema
     - d(y) = Determiantes da matriz onde as incognitas Y do sistema linear é substituido pelos valores resultado do sistema
+
+# Escalonamento
+## Ordem 2
+- Triangulamento
+- Combinação linear
