@@ -1,0 +1,90 @@
+- Novo ciclo de mercado
+- Atualização de estratégias
+- Ferramentas de IA faz parte da stack de tecnologia
+- Pair programming
+- Agentes autonomos
+- Monitoramento de métricas
+- Copilot
+- Massa de dados
+- Organização de dados
+
+## Introdução a Inteligência Artificial
+- 1950 - Alan Turing - "Computing Machinery and Intelligence"
+  - Quando uma maquina podera imitar o comportamento humano?
+  - Teste de Turing
+    - Padrão de perguntas e respostas entre um humano e uma maquina, onde o humano deve identificar qual é a maquina. Se a maquina conseguir enganar o humano, ela é considerada inteligente.
+- 1956 - Conferência de Dartmouth - John McCarthy
+  - "Artificial Intelligence" - termo cunhado por John McCarthy
+  - Definição: "A ciência e engenharia de fazer máquinas inteligentes"
+- 1960s - Primeiros sistemas de IA
+  - ELIZA (1966) - Joseph Weizenbaum
+  - Linguagem natural e processamento de linguagem natural (NLP)
+  - Substituição de palavras-chave para simular uma conversa humana
+  - Machine Learning (ML) - Aprendizado de máquina
+    - Algoritmos que permitem que as máquinas aprendam a partir de dados, sem serem explicitamente programadas para cada tarefa específica.
+- 1972 - Parry - Kenneth Colby
+  - Simula um paciente com esquizofrenia paranoide
+  - Avanços em NLP e simulação de comportamento humano
+  - Modelo de Linguagem baseado em regras
+- 1980 - Redes Neurais Artificiais
+  - Inspiradas no funcionamento do cérebro humano
+  - Capazes de aprender e reconhecer padrões complexos
+  - Aplicações em reconhecimento de voz, visão computacional e processamento de linguagem natural
+- PLN - Processamento de Linguagem Natural
+  - Análise de sentimentos, tradução automática, chatbots, assistentes virtuais
+- 2010 - Deep Learning
+  - Subcampo do Machine Learning que utiliza redes neurais profundas
+  - Avanços significativos em reconhecimento de voz, visão computacional e processamento de linguagem natural
+  - Aplicações em carros autônomos, diagnósticos médicos e assistentes virtuais
+- 2020 - Modelos de Linguagem de Grande Escala (LLMs)
+  - GPT-3 (2020) - OpenAI
+  - Capacidade de gerar texto coerente e relevante a partir de um prompt
+
+## Como uma intenligência artificial é treinada e o que são os LLMs
+- Contexto
+- Parâmetros de reconhecimento
+- Tokens
+- Treinamento supervisionado
+- Reforço Positivo
+- Contexto: Reconhecer maçãs
+- Parâmetros de reconhecimento: Cor, forma, tamanho, textura
+- Tokens: "maçã", "vermelha", "redonda", "doce"
+- Treinamento supervisionado: Fornecer exemplos de maçãs e não maçãs
+- Reforço Positivo: Recompensar o modelo quando ele identifica corretamente uma maçã
+- LLMs: Modelos de Linguagem de Grande Escala
+  - Capacidade de processar e gerar texto em grande escala
+  - Treinados em grandes volumes de dados textuais
+  - Aplicações em chatbots, assistentes virtuais, tradução automática e geração de conteúdo
+- SLMs: Modelos de Linguagem de Pequeno Escala
+  - Menor capacidade de processamento e geração de texto
+  - Treinados em volumes menores de dados textuais
+  - Aplicações em tarefas específicas, como classificação de texto ou análise de sentimentos
+## Deep Learning
+- Como funciona na vida real
+  - Redes neurais artificiais inspiradas no cérebro humano
+  - Camadas de neurônios artificiais que processam informações
+  - Aprendizado a partir de grandes volumes de dados
+  - Aplicações em reconhecimento de voz, visão computacional e processamento de linguagem natural
+- Como funciona na prática
+  - Treinamento de modelos de deep learning em grandes conjuntos de dados
+  - Ajuste de pesos e conexões entre neurônios para melhorar a precisão do modelo
+  - Utilização de GPUs para acelerar o processo de treinamento
+  - Aplicações em carros autônomos, diagnósticos médicos e assistentes virtuais
+- Multimodalidade
+  - Capacidade de processar e gerar diferentes tipos de dados, como texto, imagem e áudio
+  - Aplicações em reconhecimento de voz, visão computacional e processamento de linguagem natural
+  - Exemplos: GPT-4, DALL-E, CLIP
+- Entender nuances e inferir informações implícitas
+  - Capacidade de compreender o contexto e as nuances do texto
+  - Aplicações em chatbots, assistentes virtuais e geração de conteúdo
+  - Exemplos: GPT-3, GPT-4
+
+## Inteligencia Artificial Generativa
+- Capacidade de criar conteúdo original a partir de um prompt
+- Aplicações em geração de texto, imagem, áudio e vídeo
+- Exemplos: GPT-3, DALL-E, Jukebox
+- Geração de texto: Capacidade de criar texto coerente e relevante a partir de um prompt
+- Geração de imagem: Capacidade de criar imagens a partir de descrições textuais
+- Geração de áudio: Capacidade de criar música ou efeitos sonoros a partir de descrições textuais
+- Geração de vídeo: Capacidade de criar vídeos a partir de descrições textuais
+- Aplicações em marketing, entretenimento, educação e design

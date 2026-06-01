@@ -1,0 +1,43 @@
+classDiagram
+    %% Interfaces da raiz e nível 1
+    class Collection {
+        <<interface>>
+    }
+    class Set {
+        <<interface>>
+    }
+    class List {
+        <<interface>>
+    }
+    class Queue {
+        <<interface>>
+    }
+
+    %% Interface de nível 2
+    class SortedSet {
+        <<interface>>
+    }
+
+    %% Classes de implementação (Nível 3 e 4)
+    class HashSet
+    class LinkedHashSet
+    class TreeSet
+    class ArrayList
+    class Vector
+    class LinkedList
+    class PriorityQueue
+
+    %% Relacionamentos de Herança entre Interfaces (Linhas Sólidas no original)
+    Collection <|-- Set
+    Collection <|-- List
+    Collection <|-- Queue
+    Set <|-- SortedSet
+
+    %% Relacionamentos de Implementação (Linhas Tracejadas no original)
+    Set <.. HashSet
+    Set <.. LinkedHashSet
+    SortedSet <.. TreeSet
+    List <.. ArrayList
+    List <.. Vector
+    List <.. LinkedList
+    Queue <.. PriorityQueue
