@@ -1,9 +1,13 @@
 ordenacao
- - algoritimos de ordenacao
-  - insertion, selection, shell, heap, radix sort e etc
-  - tempo de execuçao
-  - recurso necessario: estrutura, memoria e peocessamento
-  - algoritimos recursivos: mais rapido que algoritimos com repeticao
-  - busca em dicionario desordenado
- - bubblesort
-  - n
+- algoritimos de ordenacao
+ - insertion, selection, shell, heap, radix sort e etc
+ - tempo de execuçao
+ - recurso necessario: estrutura, memoria e peocessamento
+ - algoritimos recursivos: mais rapido que algoritimos com repeticao
+ - busca em dicionario desordenado
+- bubblesort
+ - numeros maiores flutuam
+ - simples de escrever
+ - um dos algoritimos mais utilizados
+ - se quantidade de dados for pequena
+ - comparacao de 2 em 2 ate o maior chegar ao final
