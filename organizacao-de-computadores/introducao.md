@@ -1,0 +1,122 @@
+- Arquitetura de computadores
+  - Como um codigo escrito por uma pessoa é interpretado pelo computador
+  - Assembly
+  - Código de máquina
+  - Arquitetura Multinível
+  - Interpretadores
+  - Compiladores
+  - Carregadores
+- Conceitos
+  - Arquitetura de computadores
+    - Tudo aquilo que é visível para o programador
+    - Tudo aquilo que causa impacto direto no desempenho do programa
+    - Instruções, registradores, modos de endereçamento, etc.
+    - Hardware e software
+    - Planeja
+  - Organização de computadores
+    - Realização das especificações da arquitetura
+    - Implementação do hardware
+    - Implementa
+  - Funções de um computador
+    - Entrada, saída, processamento e armazenamento
+    - Barramentos
+    - Movimenta e armazena dados
+    - Hierarquia de memória
+    - Processa dados - Unidade Central de Processamento (CPU)
+    - Controla o funcionamento do computador - Unidade de Controle (UC)
+    - Executa operações aritméticas e lógicas - Unidade Lógica e Aritmética (ULA)
+  - Estrutura
+    - Inter-relacionados
+- Arquitetura de Von Neumann
+  - Memoria unica -> Guarda dados, instruções e endereços -> Unico barramento
+  - Baixo Custo
+  - Barramentos compartilhados
+  - Desempenho limitado - Gargalo de Von Neumann
+  - Funcionamento
+    - Instruções e dados são armazenados na memória
+    - A CPU busca instruções e dados da memória e interpreta
+    - A CPU executa as instruções
+  - Comercialmente muito viavel
+- Arquitetura Harvard
+  - Memoria separada -> Guarda dados e instruções -> Barramentos separados
+  - Alto Custo
+  - Barramentos separados
+  - Desempenho elevado
+  - Funcionamento
+    - Instruções e dados são armazenados em memórias separadas (Paralelismo)
+    - A CPU busca instruções e dados das memórias e interpreta
+    - A CPU executa as instruções
+  - Complexidade de implementação
+- Arquitetura Multinível
+  - Ou Arquitetura de seis níveis
+  - Não é uma arquitetura de computador, mas sim um modelo de organização de computadores
+  - Como esse programa consegue ser entendido pela maquina?
+    - Nivel 5 -> Linguagem de alto nível -> Tradução = Compilador
+    - Nivel 4 -> Linguagem de montagem - "Um programa que faz a tradução de código assembly para código de máquina" - Tradução = Montador
+    - Nivel 3 -> Sistema Operacional -> Voltado para gerenciar o hardware da maquina -> Interpretação Parcial = Sistema Operacional
+    - nivel 2 -> Conjunto de instruções do processador -> Interpretação = Microprograma ou Execução direta
+    - Nivel 1 -> Nivel Microarquitetural (Circuitos digitais) - Hardware
+    - Nivel 0 -> Nivel Físico (Transistores) - Hardware
+  - Nivel 0 - Lógica Digital
+    - Portas Lógicas
+    - Circuitos Combinacionais
+    - Circuitos Sequenciais
+  - Nivel 1 - Microarquitetura
+    - Unidade de Controle
+    - Unidade Lógica e Aritmética
+    - Registradores
+    - Barramentos
+    - Decide se instruções são executadas
+      - Pelo Hardware
+      - Por Microprograma
+    - Nivel 2 - Conjunto de Instruções (ISA)
+      - Descreve como as instruções são executadas pelo microprograma ou pelo hardware
+      - Conjunto de instruções do processador
+    - Nivel 3 - Sistema Operacional
+      - Gerencia o hardware da maquina
+      - Interpretação parcial das instruções
+    - Nivel 4 - Linguagem de Montagem (Assembler)
+      - Um programa que faz a tradução de código assembly para código de máquina
+      - Tradução = Montador
+      - Entre a linguagem de maquina e a linguagem de alto nível
+    - Nivel 5 - Linguagem de alto nível
+      - Linguagem que manipulamos
+  - Compilador
+    - Traduz a linguagem de alto nível para linguagem de montagem ou Linguagem de máquina
+    - Após ter sido convertido o código original pode ser descartado
+    - Segurança - O código original pode ser protegido
+    - Performance
+    - Conversão e execução em fases distintas
+    - Depois de transformado ele é executado
+    - Interpretador
+    - Ele pode ser linguagem de maquina ou linguagem de montagem (Assembly)
+    - Dividido em duas partes
+      - Analise
+        - Analise lexica (tokenização)
+        - Analise sintatica (parsing)
+        - Analise semantica (Significado; Erros de tipos)
+      - Sintese
+        - Geração de código intermediário
+        - Otimização de código intermediário
+        - Geração de código final
+
+    - Código origem em código objeto
+  - Interpretador, Linkeditor e Carregador
+    - Interpretador
+      - Não requer geração de código intermediário
+      - Traduz e executa o código fonte em tempo de execução (Execução direta)
+      - Em tempo de execução
+      - Executa o código linha por linha
+      - Mais lento que o compilador
+      - Falta de segurança - O código fonte é exposto
+    - Linkeditor
+      - "Aliado a lingugagens compiladas"
+      - Une os módulos de um programa em um único arquivo executável
+      - Resolve referências externas entre os módulos
+    - Carregador (Loader)
+      - Fundamental para a execução de programas
+      - Todo programa é um arquivo que fica em disco e precisa ser carregado na memória para execução
+      - Carrega o programa na memória para execução
+      - Aloca espaço na memória para o programa e seus dados
+        - Loader Absoluto - Carrega o programa em um endereço fixo
+        - Loader Relocável - Carrega o programa em qualquer endereço da memória

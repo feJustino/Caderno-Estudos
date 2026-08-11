@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacf675e-8d31-4f09-bd72-94d1762df0f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DivideExceptionThrows.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ManipulaDivideException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../banco-de-dados.md" beforeDir="false" afterPath="$PROJECT_DIR$/../banco-de-dados.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +105,7 @@
       <updated>1776393302120</updated>
       <workItem from="1780112984018" duration="1885000" />
       <workItem from="1780174394850" duration="11000" />
-      <workItem from="1780346238191" duration="1939000" />
+      <workItem from="1780346238191" duration="3152000" />
     </task>
     <servers />
   </component>
