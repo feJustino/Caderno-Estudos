@@ -1,0 +1,42 @@
+ordenacao
+
+- algoritimos de ordenacao
+  - insertion, selection, shell, heap, radix sort e etc
+  - tempo de execuçao
+  - recurso necessario: estrutura, memoria e peocessamento
+  - algoritimos recursivos: mais rapido que algoritimos com repeticao
+  - busca em dicionario desordenado
+- bubblesort
+  - numeros maiores flutuam
+  - simples de escrever
+  - um dos algoritimos mais utilizados
+  - se quantidade de dados for pequena
+  - comparacao de 2 em 2 ate o maior chegar ao final
+- QuickSort
+  - Ordenação por meio de partições
+  - as sublistas são partições
+  - diferente do bubblesort, o quicksort utiliza a recursão inves de repetição
+  - bubblesort = n²
+  - quicksort = n log n (tempo de execução menor que bubblesort)
+  - Cria partições a partir de um elemento pivô
+  - Para exemplificar temos a seguinte lista de numeros: 5, 3, 8, 6, 2, 7, 4, 1
+    - Escolhemos o pivô como sendo o último elemento da lista (1)
+    - Reorganizamos a lista de forma que todos os elementos menores que o pivô fiquem à esquerda e os maiores à direita
+    - A lista reorganizada fica: 1, 3, 8, 6, 2, 7, 4, 5
+    - Agora temos duas sublistas: [1] e [3, 8, 6, 2, 7, 4, 5]
+    - Repetimos o processo para cada sublista até que todas estejam ordenadas
+  - Preocupação com a pilha da memoria
+  - O quicksort é um algoritmo eficiente, mas pode consumir muita memória se a pilha de chamadas recursivas ficar muito grande. Para evitar isso, é importante escolher um bom pivô e limitar a profundidade da recursão.
+- MergeSort
+  - Ordenação por intercalação
+  - Ordena elementos dividindo a lista em sublistas menores e depois intercalando essas sublistas ordenadas
+  - Ordena por meio de elementos ja ordenados
+  - União de duas metades, onde ordena as sublistas
+  - Para exemplificar temos a seguinte lista de números: 5, 3, 8, 6, 2, 7, 4, 1
+    - Dividimos a lista em duas metades: [5, 3, 8, 6] e [2, 7, 4, 1]
+    - Repetimos o processo para cada metade até que todas as sublistas tenham apenas um elemento
+    - Agora temos as sublistas: [5], [3], [8], [6], [2], [7], [4], [1]
+    - Em seguida, intercalamos as sublistas ordenadas: [3, 5], [6, 8], [1, 2], [4, 7]
+    - Continuamos intercalando até obtermos a lista final ordenada: [1, 2, 3, 4, 5, 6, 7, 8]
+- Implementação ordenação Java
+- BubbleSort
