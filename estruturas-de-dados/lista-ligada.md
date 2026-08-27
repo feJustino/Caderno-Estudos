@@ -22,3 +22,10 @@
 - mostrar lista - percorrer e mostrar
 - buscar - verifica e retorna copia
 
+
+## Representações 
+- Fila vazia
+  - primeiro e último apontado para nulo
+- inserções 
+  - cria estruturas de nós 
+  
