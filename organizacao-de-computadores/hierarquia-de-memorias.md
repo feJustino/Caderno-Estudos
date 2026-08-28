@@ -1,0 +1,91 @@
+Hierarquia de memórias
+
+- Tipos de registradores
+- Cache: características, funcionamento e caso de uso
+- Memoria Ram
+- Memoria Rom - firmware
+
+— mais veloz e custo (ascendente):
+
+- Registradores, cache, principal, auxiliar
+
+- registrador:
+  - Registra dados instruções e endereço
+  - Trabalham na mesma frequência do processador
+  - Contador de progrma
+    - Contem o endereço da proxima instrução
+  - Registrador de instrução
+  - Registrador de endereço de memoria
+  - Registrador de dados
+- Memoria Cache
+  - Memoria intermediaria
+  - entre registrador e memoria principal
+  - registrador dentro da cpu e instrução, dado ou endereço dentro da memoria
+  - preciso pegar uma instrução dado ou endereço e trazer para o registrador
+  - processador, tem registrador que roda muito rapido e memoria principal é lenta
+  - Notou-se que ir na memoria é muito custoso
+  - Foi criado memoria intermediaria
+  - Armazena antecipadamente informações que provavelmente serão requisitadas pelo CPU
+  - Caracteristicas:
+    - Localidade Temporal
+    - Localidade Espacial
+    - Cache Hit
+    - Cache Miss
+  - Fundamental da computação moderna
+  - Torna processador muito mais perfomatico
+  - Niveis:
+    - L1 - Dentro do próprio processador - Menor
+    - L2 - Médio - Distancia média entre processador e ram
+    - L3 - Maior mais distante do processador e mais próxima da Ram
+- Memória Ram
+  - Memoria de trabalho/Memória Principal/Memoria Basica/Semicondutora
+  - Armazena dados e programas que vão ser executadas
+  - Organizada em celulas; Endereços; Rua com monte de casas e cada casa guarda uma instrução dado ou até mesmo endereço
+  - Memória de Acesso Randomico; qualquer posição pode ser acessada no mesmo prazo
+  - Cache também é uma memoria de acesso aleatório
+  - Caracteristicas:
+    - Leitura e Escrita
+    - Volátil
+    - Apagamento eletrico a nivel de byte
+    - Qualquer celula pode ser acessada independete de acessos anteriores - Acesso Direto
+    - Produzida em chips semicondutores
+  - DRAM (Dynamic RAM)
+    - Memoria Principal
+    - Acesso lento ao comparar com SRAM
+    - Custo Médio
+    - Mais Densa
+    - Recarga periodica (Circuito de refresh) - Capacitor
+  - SRAM (Static RAM)
+    - Memoria Cache
+    - Custo elevado
+    - Menos Densa
+    - Não requer refrsh
+    - Filp-Flop
+- Memória ROM
+  - Prioritariamente de Leitura
+  - Antepassados da Flash
+  - Read Only Memory
+  - Não é volátil
+  - Utilizada para permitir a caraga do sistema de computação. Ex: BIOS
+  - Caracteristicas
+    - Como é feito a persistencia do dado?
+  - Tipos
+    - PROM
+    - EPROM
+    - EEPROM
+    - Flash ROM
+- Memorias secundarias
+  - Discos Magneticos e Discos Opticos
+  - Memorias Offlines (Fitas)
+  - Discos Magneticos
+    - Como funciona a persistencia de dados?
+    - Pratos
+    - Face
+    - Formatação
+    - Formatação Fisica
+    - Trilhas
+    - Setores
+    - Lido pela cabeça de leitura e escrita
+    - Cluster - Agrupamento de Setores
+  - SDD vs HD
+  - Memorias grandes
